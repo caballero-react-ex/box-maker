@@ -1,0 +1,19 @@
+.NewBoxForm {
+  margin-top: 35px;
+  margin-bottom: 20px;
+  padding-left: 22px;
+}
+
+.NewBoxForm label {
+  display: inline-block;
+  width: 50px;
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+.NewBoxForm-input {
+  margin-left: 10px;
+  margin-right: 10px;
+}
