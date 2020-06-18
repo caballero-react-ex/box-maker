@@ -8,11 +8,18 @@ class BoxList extends Component {
     super(props);
     this.state = { boxes: []};
     this.create = this.create.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   create(newBox) {
     this.setState({
       boxes: [...this.state.boxes, newBox]
+    });
+  }
+
+  delete(id) {
+    this.setState({
+      boxes: this.state.boxes.filter(box => box.id !== id)
     });
   }
 
@@ -24,6 +31,7 @@ class BoxList extends Component {
       color={box.color}
       key={box.id}
       id={box.id}
+      deleteBox={this.delete}
       />
     ));
 
