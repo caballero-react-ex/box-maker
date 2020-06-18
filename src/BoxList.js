@@ -6,11 +6,14 @@ import './BoxList.css';
 class BoxList extends Component {
   constructor(props) {
     super(props);
-    this.state = { boxes: [
-      {height:100, width:100, color:"orange" }, 
-      {height:150, width:200, color:"purple" },
-      {height:200, width:220, color:"pink" },
-    ]};
+    this.state = { boxes: []};
+    this.create = this.create.bind(this);
+  }
+
+  create(newBox) {
+    this.setState({
+      boxes: [...this.state.boxes, newBox]
+    });
   }
 
   render(){
@@ -25,7 +28,7 @@ class BoxList extends Component {
     return(
       <div>
         <h2 className="BoxList-title">Color Box Maker</h2>
-        <NewBoxForm />
+        <NewBoxForm createBox={this.create} />
         <div className="BoxList-container">
           {boxes}
         </div>

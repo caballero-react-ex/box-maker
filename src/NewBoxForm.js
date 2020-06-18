@@ -6,17 +6,28 @@ class NewBoxForm extends Component {
     super(props);
     this.state = {height: "", width: "", color: ""};
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event){
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.createBox(this.state);
+    this.setState({
+      height: "",
+      width:"",
+      color:""
+    });
+  }
+
+  handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
   }
 
   render() {
     return (
-      <form className="NewBoxForm">
+      <form className="NewBoxForm" onSubmit={this.handleSubmit}>
         <div className="input-container">
           <label htmlFor="height">Height:</label>
           <input 
