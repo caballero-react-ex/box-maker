@@ -21,7 +21,9 @@ class BoxList extends Component {
       <Box 
       height={box.height} 
       width={box.width} 
-      color={box.color} 
+      color={box.color}
+      key={box.id}
+      id={box.id}
       />
     ));
 
